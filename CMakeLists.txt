@@ -4,6 +4,8 @@ add_definitions(-std=c++17)
 
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
+set(SDL2_LIBRARIES, ${SDL2_LIBRARIES}, '/usr/local/lib/libSDL2.dylib')
+set(SDL2_INCLUDE_DIRS, ${SDL2_INCLUDE_DIRS}, '/usr/local/include/SDL2')
 
 project(SDL2Test)
 
