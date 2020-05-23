@@ -29,3 +29,23 @@ In this project, you can build your own C++ application or extend this Snake gam
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
+
+## RUBRIC
+
+### README
+
+ CRITERIA  | MEETS SPECIFICATIONS |
+| ------------- | ------------- |
+| A README with instructions is included with the project  | Yes  |
+| The README indicates which project is chosen.  | Yes. Snake Game  |
+| The README includes information about each rubric point addressed.  | Yes. Snake Game  |
+
+### Compiling and testing
+
+| The submission must compile and run. | Yes |
+
+### Loops, Functions, I/O
+
+| The project demonstrates an understanding of C++ functions and control structures. | Yes |
+| The project reads data from a file and process the data, or the program writes data to a file. | Yes. for maintaing the highest score so far. |
+| The project accepts user input and processes the input. | Yes. Takes the user name as the input |
