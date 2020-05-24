@@ -68,37 +68,26 @@ int HallOfFame::addRecord(int score, std::string name)
     currentWinners.push_back(temp);
     std::sort(currentWinners.begin(), currentWinners.end(), [](struct Record* rec1, struct Record* rec2) -> bool {return (rec1->score > rec2->score);});
     
+    int cur_rank = 1;
+    int prev_score = currentWinners[0]->score;
     for (auto it = currentWinners.begin(); it != currentWinners.end(); it++)
     {
+        if(prev_score > (*it)->score)
+        {
+            cur_rank++;
+            prev_score = (*it)->score;
+        }
+        (*it)->rank = cur_rank;
         std::cout << "Name " << (*it)->name << "Assigned rank " << (*it)->rank << " with score " <<  (*it)->score << "\n";
     }
 
-    int cur_rank = 1;
-    for (auto it = currentWinners.begin(); it != currentWinners.end()-1; it++)
-    {
-        (*it)->rank = cur_rank;
-        if((*it)->score > (*(it+1))->score)
-        {
-            cur_rank++;
-        }
-        //std::cout << "Assigned rank " << (*it)->rank << " with score " <<  (*it)->score << "\n";
-    }
-    
-    auto it  = currentWinners.end();
-    if((*it)->score < (*(it-1))->score)
-    {
-        cur_rank++;
-    }
-    (*it)->rank = cur_rank;
-
     if (currentWinners.back()->rank == 4)
     {
+        currentWinners.pop_back();
         if(currentWinners.back() == temp)
         {
-            currentWinners.pop_back();    
             return -1;
         }
-        currentWinners.pop_back();
     }
     
     for(auto it = currentWinners.begin(); it < currentWinners.end(); it++)
@@ -129,6 +118,6 @@ void HallOfFame::showRecords()
 {
     for(auto it = currentWinners.begin(); it != currentWinners.end(); it++)
     {
-        std::cout << (*it)->rank << "\t" << (*it)->name << "\t" << (*it)->score << "\n"; 
+        std::cout << (*it)->rank << "\t" << (*it)->name << "\t" << (*it)->score << ",\n"; 
     }
 }

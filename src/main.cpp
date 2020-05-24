@@ -28,6 +28,6 @@ int main() {
     std::cout << "Congrats you have made it to the hall of fame" << "\n";
     hf.showRecords();
   }
-  //hf.saveRecords();
+  hf.saveRecords();
   return 0;
 }
