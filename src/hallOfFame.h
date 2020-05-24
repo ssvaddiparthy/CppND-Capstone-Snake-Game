@@ -12,11 +12,13 @@ struct Record{
 
 class HallOfFame{
     private:
-        std::vector<struct Record> currentWiners;
+        std::vector<struct Record*> currentWinners;
     public:
         HallOfFame();
-        void addRecord();
+        ~HallOfFame();
+        int addRecord(int score, std::string name);
         void saveRecords();
+        void showRecords();
 };
 
 #endif

@@ -3,6 +3,7 @@
 #include "game.h"
 #include "renderer.h"
 #include "userSession.h"
+#include "hallOfFame.h" 
 
 int main() {
   constexpr std::size_t kFramesPerSecond{60};
@@ -11,13 +12,22 @@ int main() {
   constexpr std::size_t kScreenHeight{640};
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
-
+  
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
   Game game(kGridWidth, kGridHeight);
+  HallOfFame hf = HallOfFame();
   UserSession* curSession = game.Run(controller, renderer, kMsPerFrame);
-  std::cout << "Game has terminated successfully!\n";
-  std::cout << "User: " << curSession->getUserName() << "\tScore: " << curSession->getScore() << "\n";
 
+  std::cout << "Game has terminated successfully!\n";
+  int rank = hf.addRecord(curSession->getScore(), curSession->getUserName());
+  std::cout << "User: " << curSession->getUserName() << "\tScore: " << curSession->getScore() << "\tRank: " << rank << "\n";
+  std::cout << rank << "\n";
+  if(rank != -1)
+  {
+    std::cout << "Congrats you have made it to the hall of fame" << "\n";
+    hf.showRecords();
+  }
+  //hf.saveRecords();
   return 0;
 }
