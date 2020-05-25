@@ -49,3 +49,15 @@ In this project, you can build your own C++ application or extend this Snake gam
 | The project demonstrates an understanding of C++ functions and control structures. | Yes |
 | The project reads data from a file and process the data, or the program writes data to a file. | Yes. for maintaing the highest score so far. |
 | The project accepts user input and processes the input. | Yes. Takes the user name as the input |
+
+### Loops, Functions, I/O
+
+| The project uses Object Oriented Programming techniques. | Yes |
+| Classes use appropriate access specifiers for class members. | Yes |
+| Class constructors utilize member initialization lists. | TODO |
+
+### Memory Management
+
+| The project uses destructors appropriately. | Yes |
+| The project follows the Rule of 5. | TODO |
+| The project uses smart pointers instead of raw pointers. | TODO |

@@ -25,7 +25,7 @@ int main() {
   std::cout << rank << "\n";
   if(rank != -1)
   {
-    std::cout << "Congrats you have made it to the hall of fame" << "\n";
+    std::cout << "Congrats you have made it to the hall of fame with rank: " << rank << "\n";
     hf.showRecords();
   }
   hf.saveRecords();

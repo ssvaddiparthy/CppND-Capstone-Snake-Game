@@ -78,10 +78,11 @@ int HallOfFame::addRecord(int score, std::string name)
             prev_score = (*it)->score;
         }
         (*it)->rank = cur_rank;
-        std::cout << "Name " << (*it)->name << "Assigned rank " << (*it)->rank << " with score " <<  (*it)->score << "\n";
+        // std::cout << "Name " << (*it)->name << "Assigned rank " << (*it)->rank << " with score " <<  (*it)->score << "\n";
     }
-
-    if (currentWinners.back()->rank == 4)
+    std::cout << currentWinners.back()->rank << "\t" << currentWinners.back()->score << "\t" << currentWinners.back()->name << "\n";
+            
+    if (currentWinners.back()->rank >= 4)
     {
         currentWinners.pop_back();
         if(currentWinners.back() == temp)
@@ -94,7 +95,6 @@ int HallOfFame::addRecord(int score, std::string name)
     {
         if(*it == temp)
         {
-            std::cout << (*it)->rank << "\n";
             return (*it)->rank;
         }
     }
@@ -107,7 +107,7 @@ void HallOfFame::saveRecords()
     fameSaver.open("../hall_of_fame.txt");
     for(auto it = currentWinners.begin(); it != currentWinners.end(); it++)
     {
-        fameSaver << (*it)->rank << "," << (*it)->name << "," << (*it)->score << "\n"; 
+        fameSaver << (*it)->rank << "," << (*it)->name << "," << (*it)->score << ",\n"; 
     }
     fameSaver.close();
 
@@ -118,6 +118,6 @@ void HallOfFame::showRecords()
 {
     for(auto it = currentWinners.begin(); it != currentWinners.end(); it++)
     {
-        std::cout << (*it)->rank << "\t" << (*it)->name << "\t" << (*it)->score << ",\n"; 
+        std::cout << (*it)->rank << "\t" << (*it)->name << "\t" << (*it)->score << "\n"; 
     }
 }
