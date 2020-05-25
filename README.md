@@ -60,4 +60,3 @@ In this project, you can build your own C++ application or extend this Snake gam
 
 | The project uses destructors appropriately. | Yes |
 | The project follows the Rule of 5. | YES |
-| The project uses smart pointers instead of raw pointers. | TODO |
