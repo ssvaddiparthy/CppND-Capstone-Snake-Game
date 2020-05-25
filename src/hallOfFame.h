@@ -16,6 +16,10 @@ class HallOfFame{
     public:
         HallOfFame();
         ~HallOfFame();
+        HallOfFame(const HallOfFame &obj);
+        HallOfFame(HallOfFame&& obj);
+        HallOfFame& operator=(const HallOfFame& obj);
+        HallOfFame& operator=(HallOfFame&& obj);
         int addRecord(int score, std::string name);
         void saveRecords();
         void showRecords();

@@ -21,8 +21,7 @@ int main() {
 
   std::cout << "Game has terminated successfully!\n";
   int rank = hf.addRecord(curSession->getScore(), curSession->getUserName());
-  std::cout << "User: " << curSession->getUserName() << "\tScore: " << curSession->getScore() << "\tRank: " << rank << "\n";
-  std::cout << rank << "\n";
+  std::cout << "User: " << curSession->getUserName() << "\tScore: " << curSession->getScore() << "\n";
   if(rank != -1)
   {
     std::cout << "Congrats you have made it to the hall of fame with rank: " << rank << "\n";

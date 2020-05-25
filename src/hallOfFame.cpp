@@ -58,6 +58,58 @@ HallOfFame::~HallOfFame()
     }
 }
 
+// copy constructor
+HallOfFame::HallOfFame(const HallOfFame &obj)
+{
+    for (auto it = obj.currentWinners.begin(); it != obj.currentWinners.end(); it++)
+    {
+        struct Record* rec = new Record();
+        rec->rank = (*it)->rank;
+        rec->name = (*it)->name;
+        rec->score = (*it)->score;
+        currentWinners.push_back(rec);
+    }
+    
+};
+
+// move constructor
+HallOfFame::HallOfFame(HallOfFame&& obj)
+{
+    for (auto it = obj.currentWinners.begin(); it != obj.currentWinners.end(); it++)
+    {
+        currentWinners.push_back(*it);
+        obj.currentWinners.erase(it);
+    }
+};
+
+// copy operator
+HallOfFame& HallOfFame::operator=(const HallOfFame& obj)
+{
+    for (auto it = obj.currentWinners.begin(); it != obj.currentWinners.end(); it++)
+    {
+        struct Record* rec = new Record();
+        rec->rank = (*it)->rank;
+        rec->name = (*it)->name;
+        rec->score = (*it)->score;
+        currentWinners.push_back(rec);
+    }
+    return *this;
+};
+
+// move operator
+HallOfFame& HallOfFame::operator=(HallOfFame&& obj)
+{
+    if (this != &obj) 
+    {
+        for (auto it = obj.currentWinners.begin(); it != obj.currentWinners.end(); it++)
+        {
+            currentWinners.push_back(*it);
+            obj.currentWinners.erase(it);
+        }
+    }
+    return *this;
+};
+
 int HallOfFame::addRecord(int score, std::string name)
 {
     struct Record *temp = new Record();
